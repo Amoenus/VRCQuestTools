@@ -11,7 +11,7 @@ msgstr ""
 "X-Crowdin-File-ID: 58\n"
 "Project-Id-Version: vrc-quest-tools\n"
 "Language-Team: Japanese\n"
-"PO-Revision-Date: 2025-12-29 07:52\n"
+"PO-Revision-Date: 2026-02-08 12:40\n"
 
 msgid "CancelLabel"
 msgstr "キャンセル"
@@ -138,10 +138,10 @@ msgid "NdmfPhaseTooltip"
 msgstr "選択したNDMFフェーズでアバターを変換します。"
 
 msgid "EnableMaterialPreviewLabel"
-msgstr "Enable Material Preview"
+msgstr "マテリアルのプレビューを有効化"
 
 msgid "EnableMaterialPreviewTooltip"
-msgstr "Enable material preview in the editor. When enabled, converted materials will be previewed in the scene view."
+msgstr "エディター内でマテリアルのプレビューを有効にします。有効な場合、変換されたマテリアルがSceneビューに表示されます。"
 
 msgid "GeneratingTexturesDialogMessage"
 msgstr "テクスチャを生成中"
@@ -713,3 +713,4 @@ msgstr "置換先マテリアル {0} は Mobile アバターで使用できな�
 
 msgid "FallbackAvatarEditorDescription"
 msgstr "Mobile(AndroidまたはiOS)へのアップロード時、パフォーマンスランクがGood以上の場合、このアバターを自動的にフォールバックアバターとして使用可能に設定します。"
+
