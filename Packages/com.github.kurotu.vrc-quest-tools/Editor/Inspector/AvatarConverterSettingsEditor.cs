@@ -423,7 +423,7 @@ namespace KRT.VRCQuestTools.Inspector
             };
             try
             {
-                VRCQuestTools.AvatarConverter.GenerateAndroidTextures(targetAvatar.Materials, true, outputPath, converterSettings, progressCallback);
+                VRCQuestTools.AvatarConverter.GenerateMobileTextures(targetAvatar.Materials, true, outputPath, converterSettings, progressCallback);
             }
             catch (System.Exception exception)
             {
@@ -487,7 +487,7 @@ namespace KRT.VRCQuestTools.Inspector
                 sw.Start();
                 questAvatar = VRCQuestTools.AvatarConverter.ConvertForQuest(converterSettings, VRCQuestTools.ComponentRemover, true, GetOutputPath(avatar), progressCallback);
                 sw.Stop();
-                Logger.Log($"Converted avatar for Android in {sw.ElapsedMilliseconds}ms");
+                Logger.Log($"Converted avatar for Mobile in {sw.ElapsedMilliseconds}ms");
             }
             catch (System.Exception exception)
             {

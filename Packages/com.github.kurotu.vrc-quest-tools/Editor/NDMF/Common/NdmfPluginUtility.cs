@@ -13,11 +13,11 @@ namespace KRT.VRCQuestTools.Ndmf
     internal static class NdmfPluginUtility
     {
         /// <summary>
-        /// Manual bake with Android buold target settings.
+        /// Manual bake with Mobile build target settings.
         /// </summary>
         /// <param name="avatar">Target avatar.</param>
         /// <returns>Baked avatar.</returns>
-        internal static GameObject ManualBakeWithAndroidSettings(GameObject avatar)
+        internal static GameObject ManualBakeWithMobileSettings(GameObject avatar)
         {
             SetBuildTarget(Models.BuildTarget.Android);
             try

@@ -19,7 +19,7 @@ namespace KRT.VRCQuestTools.ViewModels
         private const MobileTextureSubtarget RecommendedAndroidTextureCompression = MobileTextureSubtarget.ASTC;
 
         /// <summary>
-        /// Gets default texuture compression for Android.
+        /// Gets default texture compression for Android.
         /// </summary>
         internal MobileTextureSubtarget DefaultAndroidTextureCompression => UnitySettings.DefaultAndroidTextureCompression;
 

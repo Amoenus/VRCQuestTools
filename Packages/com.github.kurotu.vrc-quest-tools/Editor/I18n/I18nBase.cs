@@ -79,8 +79,8 @@ namespace KRT.VRCQuestTools.I18n
         internal string BeginConvertSettingsButtonDescription => GetText("BeginConvertSettingsButtonDescription");
 
         internal string AvatarLabel => GetText("AvatarLabel");
-        internal string GenerateAndroidTexturesLabel => GetText("GenerateAndroidTexturesLabel");
-        internal string GenerateAndroidTexturesTooltip => GetText("GenerateAndroidTexturesTooltip");
+        internal string GenerateMobileTexturesLabel => GetText("GenerateMobileTexturesLabel");
+        internal string GenerateMobileTexturesTooltip => GetText("GenerateMobileTexturesTooltip");
         internal string SupportedShadersLabel => GetText("SupportedShadersLabel");
         internal string SaveToLabel => GetText("SaveToLabel");
         internal string SelectButtonLabel => GetText("SelectButtonLabel");
@@ -259,13 +259,13 @@ namespace KRT.VRCQuestTools.I18n
         internal string PlatformComponentRemoverEditorComponentSettingsLabel => GetText("PlatformComponentRemoverEditorComponentSettingsLabel");
         internal string PlatformComponentRemoverEditorComponentSettingsTooltip => GetText("PlatformComponentRemoverEditorComponentSettingsTooltip");
         internal string PlatformComponentRemoverEditorCheckboxPCTooltip => GetText("PlatformComponentRemoverEditorCheckboxPCTooltip");
-        internal string PlatformComponentRemoverEditorCheckboxAndroidTooltip => GetText("PlatformComponentRemoverEditorCheckboxAndroidTooltip");
+        internal string PlatformComponentRemoverEditorCheckboxMobileTooltip => GetText("PlatformComponentRemoverEditorCheckboxMobileTooltip");
         internal string ComponentLabel => GetText("ComponentLabel");
 
         // Platform GameObject Remover
         internal string PlatformGameObjectRemoverEditorDescription => GetText("PlatformGameObjectRemoverEditorDescription");
         internal string PlatformGameObjectRemoverEditorKeepOnPCLabel => GetText("PlatformGameObjectRemoverEditorKeepOnPCLabel");
-        internal string PlatformGameObjectRemoverEditorKeepOnAndroidLabel => GetText("PlatformGameObjectRemoverEditorKeepOnAndroidLabel");
+        internal string PlatformGameObjectRemoverEditorKeepOnMobileLabel => GetText("PlatformGameObjectRemoverEditorKeepOnMobileLabel");
 
         // Mesh Flipper
         internal string MeshFlipperEditorDescription => GetText("MeshFlipperEditorDescription");
@@ -275,9 +275,9 @@ namespace KRT.VRCQuestTools.I18n
         internal string MeshFlipperEditorMaskModeLabel => GetText("MeshFlipperEditorMaskModeLabel");
         internal string MeshFlipperEditorProcessingPhaseLabel => GetText("MeshFlipperEditorProcessingPhaseLabel");
         internal string MeshFlipperEditorEnabledOnPCLabel => GetText("MeshFlipperEditorEnabledOnPCLabel");
-        internal string MeshFlipperEditorEnabledOnAndroidLabel => GetText("MeshFlipperEditorEnabledOnAndroidLabel");
+        internal string MeshFlipperEditorEnabledOnMobileLabel => GetText("MeshFlipperEditorEnabledOnMobileLabel");
         internal string MeshFlipperEditorEnabledOnPCWarning => GetText("MeshFlipperEditorEnabledOnPCWarning");
-        internal string MeshFlipperEditorEnabledOnAndroidWarning => GetText("MeshFlipperEditorEnabledOnAndroidWarning");
+        internal string MeshFlipperEditorEnabledOnMobileWarning => GetText("MeshFlipperEditorEnabledOnMobileWarning");
         internal string MeshFlipperEditorMaskTextureMissingError => GetText("MeshFlipperEditorMaskTextureMissingError");
         internal string MeshFlipperEditorMaskTextureNotReadableError => GetText("MeshFlipperEditorMaskTextureNotReadableError");
         internal string MeshFlipperMeshDirectionFlip => GetText("MeshFlipperMeshDirectionFlip");
@@ -298,7 +298,7 @@ namespace KRT.VRCQuestTools.I18n
         // Menu Icons Resizer
         internal string MenuIconResizerEditorDescription => GetText("MenuIconResizerEditorDescription");
         internal string MenuIconResizerEditorResizeModePCLabel => GetText("MenuIconResizerEditorResizeModePCLabel");
-        internal string MenuIconResizerEditorResizeModeAndroidLabel => GetText("MenuIconResizerEditorResizeModeAndroidLabel");
+        internal string MenuIconResizerEditorResizeModeMobileLabel => GetText("MenuIconResizerEditorResizeModeMobileLabel");
         internal string MenuIconResizerEditorCompressTexturesLabel => GetText("MenuIconResizerEditorCompressTexturesLabel");
         internal string MenuIconResizerEditorMobileTextureFormatLabel => GetText("MenuIconResizerEditorMobileTextureFormatLabel");
 
