@@ -3,6 +3,7 @@
 // Licensed under the MIT license. See LICENSE.txt file in the project root for full license information.
 // </copyright>
 
+using System.Collections.Generic;
 using KRT.VRCQuestTools.Utils;
 using UnityEditor;
 using UnityEngine;
@@ -98,6 +99,26 @@ namespace KRT.VRCQuestTools.Models.Unity
         /// Gets a value indicating whether to use 3rd shadow.
         /// </summary>
         internal bool UseShadow3rd => UseShadow && Material.GetColor("_Shadow3rdColor").a > 0.0f;
+
+        /// <summary>
+        /// Gets a value indicating whether to use main 2nd texture.
+        /// </summary>
+        internal bool UseMain2ndTex => Material.GetFloat("_UseMain2ndTex") > 0.5f;
+
+        /// <summary>
+        /// Gets a value indicating whether to use main 3rd texture.
+        /// </summary>
+        internal bool UseMain3rdTex => Material.GetFloat("_UseMain3rdTex") > 0.5f;
+
+        /// <summary>
+        /// Gets the main 2nd texture.
+        /// </summary>
+        internal Texture Main2ndTex => Material.GetTexture("_Main2ndTex");
+
+        /// <summary>
+        /// Gets the main 3rd texture.
+        /// </summary>
+        internal Texture Main3rdTex => Material.GetTexture("_Main3rdTex");
 
         /// <summary>
         /// Gets the ao map texture.
@@ -354,6 +375,49 @@ namespace KRT.VRCQuestTools.Models.Unity
         /// Gets the rim light blur.
         /// </summary>
         internal float RimLightBlur => Material.GetFloat("_RimBlur");
+
+        /// <inheritdoc/>
+        internal override (int MaxTextureSize, TextureFormat Format)? GetToonLitPlatformOverride()
+        {
+            // Use main textures and emission textures, but only if features are actually enabled
+            var textures = new List<Texture>(5);
+            
+            // Always include main texture if it exists
+            if (Material.mainTexture != null)
+            {
+                textures.Add(Material.mainTexture);
+            }
+            
+            // Include Main2nd if enabled
+            if (UseMain2ndTex && Main2ndTex != null)
+            {
+                textures.Add(Main2ndTex);
+            }
+            
+            // Include Main3rd if enabled
+            if (UseMain3rdTex && Main3rdTex != null)
+            {
+                textures.Add(Main3rdTex);
+            }
+            
+            // Include emission textures if enabled
+            if (UseEmission && EmissionMap != null)
+            {
+                textures.Add(EmissionMap);
+            }
+            
+            if (UseEmission2nd && Emission2ndMap != null)
+            {
+                textures.Add(Emission2ndMap);
+            }
+            
+            if (textures.Count > 0)
+            {
+                return TextureUtility.GetBestPlatformOverrideSettings(textures.ToArray());
+            }
+            
+            return null;
+        }
 
         /// <inheritdoc/>
         internal override AsyncCallbackRequest GenerateToonLitImage(IToonLitConvertSettings settings, System.Action<Texture2D> completion)

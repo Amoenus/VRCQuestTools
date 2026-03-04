@@ -357,7 +357,7 @@ namespace KRT.VRCQuestTools.Models.VRChat
                                 }
                                 else
                                 {
-                                    request = new GenericToonStandardGenerator(toonStandardConvertSettings, sharedBlackTexture).GenerateTextures(m2, buildTarget, saveAsPng, saveDirectory, Completion);
+                                    request = new GenericToonStandardGenerator(m2, toonStandardConvertSettings, sharedBlackTexture).GenerateTextures(m2, buildTarget, saveAsPng, saveDirectory, Completion);
                                 }
                             }
                             else
@@ -612,7 +612,7 @@ namespace KRT.VRCQuestTools.Models.VRChat
                     {
                         return new LilToonToonStandardGenerator((LilToonMaterial)material, toonStandardSettings, sharedBlackTexture).GenerateMaterial(material, buildTarget, saveAsFile, texturesPath, completion);
                     }
-                    return new GenericToonStandardGenerator(toonStandardSettings, sharedBlackTexture).GenerateMaterial(material, buildTarget, saveAsFile, texturesPath, completion);
+                    return new GenericToonStandardGenerator(material, toonStandardSettings, sharedBlackTexture).GenerateMaterial(material, buildTarget, saveAsFile, texturesPath, completion);
                 case MaterialReplaceSettings replaceSettings:
                     if (replaceSettings.material == null)
                     {

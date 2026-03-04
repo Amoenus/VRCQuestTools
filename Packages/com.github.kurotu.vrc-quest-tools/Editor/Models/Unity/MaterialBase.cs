@@ -3,10 +3,10 @@
 // Licensed under the MIT license. See LICENSE.txt file in the project root for full license information.
 // </copyright>
 
+using System.Collections.Generic;
 using System.Linq;
 using KRT.VRCQuestTools.Utils;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace KRT.VRCQuestTools.Models.Unity
 {
@@ -63,6 +63,16 @@ namespace KRT.VRCQuestTools.Models.Unity
         }
 
         /// <summary>
+        /// Gets the platform override settings for Toon Lit texture.
+        /// </summary>
+        /// <returns>Platform override settings, or null if none.</returns>
+        internal virtual (int MaxTextureSize, TextureFormat Format)? GetToonLitPlatformOverride()
+        {
+            // Just use the platform override from main texture
+            return TextureUtility.GetBestPlatformOverrideSettings(Material.mainTexture);
+        }
+
+        /// <summary>
         /// Generates an image for Toon Lit main texture.
         /// </summary>
         /// <param name="settings">Setting object.</param>
@@ -81,7 +91,7 @@ namespace KRT.VRCQuestTools.Models.Unity
                 baker.Object.SetFloat("_VQT_GenerateShadow", settings.GenerateShadowFromNormalMap ? 1 : 0);
 
                 // Collect textures for platform override analysis
-                var texturesForOverride = new System.Collections.Generic.List<Texture>();
+                var texturesForOverride = new List<Texture>();
                 foreach (var name in Material.GetTexturePropertyNames())
                 {
                     var t = Material.GetTexture(name);

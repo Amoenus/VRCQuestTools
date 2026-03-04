@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using KRT.VRCQuestTools.Models.Unity;
 using KRT.VRCQuestTools.Utils;
@@ -126,6 +127,172 @@ namespace KRT.VRCQuestTools.Models
             }
 
             return newMaterial;
+        }
+
+        /// <summary>
+        /// Gets the platform override settings for main texture.
+        /// </summary>
+        /// <returns>Platform override settings, or null if none.</returns>
+        protected override (int MaxTextureSize, TextureFormat Format)? GetMainTexturePlatformOverride()
+        {
+            // Only use color textures, not mask textures, and only from enabled features
+            var textures = new List<Texture>(3);
+
+            if (lilMaterial.Material.mainTexture != null)
+            {
+                textures.Add(lilMaterial.Material.mainTexture);
+            }
+
+            if (lilMaterial.UseMain2ndTex && lilMaterial.Main2ndTex != null)
+            {
+                textures.Add(lilMaterial.Main2ndTex);
+            }
+
+            if (lilMaterial.UseMain3rdTex && lilMaterial.Main3rdTex != null)
+            {
+                textures.Add(lilMaterial.Main3rdTex);
+            }
+
+            if (textures.Count > 0)
+            {
+                return TextureUtility.GetBestPlatformOverrideSettings(textures.ToArray());
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Gets the platform override settings for emission map textures.
+        /// </summary>
+        /// <returns>Platform override settings, or null if none.</returns>
+        protected override (int MaxTextureSize, TextureFormat Format)? GetEmissionMapPlatformOverride()
+        {
+            // Only use color textures, and only if the feature is actually enabled
+            var textures = new List<Texture>(2);
+            
+            if (lilMaterial.UseEmission && lilMaterial.EmissionMap != null)
+            {
+                textures.Add(lilMaterial.EmissionMap);
+            }
+            
+            if (lilMaterial.UseEmission2nd && lilMaterial.Emission2ndMap != null)
+            {
+                textures.Add(lilMaterial.Emission2ndMap);
+            }
+            
+            if (textures.Count > 0)
+            {
+                return TextureUtility.GetBestPlatformOverrideSettings(textures.ToArray());
+            }
+            
+            return null;
+        }
+
+        /// <summary>
+        /// Gets the platform override settings for gloss map textures.
+        /// </summary>
+        /// <returns>Platform override settings, or null if none.</returns>
+        protected override (int MaxTextureSize, TextureFormat Format)? GetGlossMapPlatformOverride()
+        {
+            var textures = new List<Texture>(2);
+
+            if (lilMaterial.SmoothnessTex != null)
+            {
+                textures.Add(lilMaterial.SmoothnessTex);
+            }
+
+            if (lilMaterial.ReflectionColorTex != null)
+            {
+                textures.Add(lilMaterial.ReflectionColorTex);
+            }
+
+            if (textures.Count > 0)
+            {
+                return TextureUtility.GetBestPlatformOverrideSettings(textures.ToArray());
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Gets the platform override settings for matcap textures.
+        /// </summary>
+        /// <returns>Platform override settings, or null if none.</returns>
+        protected override (int MaxTextureSize, TextureFormat Format)? GetMatcapPlatformOverride()
+        {
+            return TextureUtility.GetBestPlatformOverrideSettings(lilMaterial.MatCapTex);
+        }
+
+        /// <summary>
+        /// Gets the platform override settings for matcap mask textures.
+        /// </summary>
+        /// <returns>Platform override settings, or null if none.</returns>
+        protected override (int MaxTextureSize, TextureFormat Format)? GetMatcapMaskPlatformOverride()
+        {
+            return TextureUtility.GetBestPlatformOverrideSettings(lilMaterial.MatCapMask);
+        }
+
+        /// <summary>
+        /// Gets the platform override settings for metallic map textures.
+        /// </summary>
+        /// <returns>Platform override settings, or null if none.</returns>
+        protected override (int MaxTextureSize, TextureFormat Format)? GetMetallicMapPlatformOverride()
+        {
+            return TextureUtility.GetBestPlatformOverrideSettings(lilMaterial.MetallicMap, lilMaterial.ReflectionColorTex);
+        }
+
+        /// <summary>
+        /// Gets the platform override settings for normal map textures.
+        /// </summary>
+        /// <returns>Platform override settings, or null if none.</returns>
+        protected override (int MaxTextureSize, TextureFormat Format)? GetNormalMapPlatformOverride()
+        {
+            return TextureUtility.GetBestPlatformOverrideSettings(lilMaterial.NormalMap);
+        }
+
+        /// <summary>
+        /// Gets the platform override settings for occlusion map textures.
+        /// </summary>
+        /// <returns>Platform override settings, or null if none.</returns>
+        protected override (int MaxTextureSize, TextureFormat Format)? GetOcclusionMapPlatformOverride()
+        {
+            return TextureUtility.GetBestPlatformOverrideSettings(lilMaterial.AOMap);
+        }
+
+        /// <summary>
+        /// Gets the platform override settings for packed mask textures.
+        /// </summary>
+        /// <param name="pack">The texture pack for which to get overrides.</param>
+        /// <returns>Platform override settings, or null if none.</returns>
+        protected override (int MaxTextureSize, TextureFormat Format)? GetPackedMaskPlatformOverride(TexturePack pack)
+        {
+            var sourceTextures = new List<Texture>();
+            foreach (var mask in pack.GetMasks())
+            {
+                Texture tex = null;
+                switch (mask.MaskType)
+                {
+                    case MaskType.DetailMask:
+                        break; // lilToon doesn't have detail mask
+                    case MaskType.MetallicMap:
+                        tex = lilMaterial.MetallicMap;
+                        break;
+                    case MaskType.MatcapMask:
+                        tex = lilMaterial.MatCapMask;
+                        break;
+                    case MaskType.OcculusionMap:
+                        tex = lilMaterial.AOMap;
+                        break;
+                    case MaskType.GlossMap:
+                        tex = lilMaterial.SmoothnessTex;
+                        break;
+                }
+                if (tex != null)
+                {
+                    sourceTextures.Add(tex);
+                }
+            }
+            return TextureUtility.GetBestPlatformOverrideSettings(sourceTextures.ToArray());
         }
 
         /// <inheritdoc/>
