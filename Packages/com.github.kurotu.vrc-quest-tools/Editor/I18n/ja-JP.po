@@ -11,7 +11,7 @@ msgstr ""
 "X-Crowdin-File-ID: 58\n"
 "Project-Id-Version: vrc-quest-tools\n"
 "Language-Team: Japanese\n"
-"PO-Revision-Date: 2026-02-08 12:40\n"
+"PO-Revision-Date: 2026-03-06 14:49\n"
 
 msgid "CancelLabel"
 msgstr "キャンセル"
