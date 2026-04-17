@@ -118,7 +118,9 @@ jobs:
           PATCH=$(echo "$CURRENT_VERSION" | cut -d. -f3 | cut -d- -f1)
           NEXT_PATCH=$((PATCH + 1))
           DATE=$(date +%Y%m%d)
-          VERSION="${MAJOR}.${MINOR}.${NEXT_PATCH}-master.${DATE}"
+          RUN_NUMBER="${GITHUB_RUN_NUMBER}"
+          SHORT_SHA=$(git rev-parse --short HEAD)
+          VERSION="${MAJOR}.${MINOR}.${NEXT_PATCH}-master.${DATE}.${RUN_NUMBER}.${SHORT_SHA}"
           echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
       - name: Update package.json
         run: |
