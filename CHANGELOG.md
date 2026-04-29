@@ -41,6 +41,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed support for NDMF earlier than 1.5.0.
 - Removed VQT Avatar Builder window. Use VRChat SDK Control Panel to build and upload avatars directly, or use the "[NDMF] Build and Test for PC with Android Settings" context menu for local testing.
 
+## [2.11.6] - 2026-04-29
+
+### Fixed
+- Fixed an issue where UV tiling (texture scale and offset) of the main texture was not preserved when converting lilToon or Poiyomi materials to Toon Lit.
+- Fixed an issue where UV tiling of the main texture, emission map, and occlusion map was not preserved when converting lilToon materials to Toon Standard.
+
 ## [2.11.5] - 2026-01-23
 
 ### Fixed
