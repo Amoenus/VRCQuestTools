@@ -37,8 +37,6 @@ namespace KRT.VRCQuestTools.Models
             newMaterial.MainTexture = lilMaterial.Material.mainTexture;
             newMaterial.MainTextureScale = lilMaterial.MainTextureScale;
             newMaterial.MainTextureOffset = lilMaterial.MainTextureOffset;
-            newMaterial.MainTextureScale = lilMaterial.MainTextureScale;
-            newMaterial.MainTextureOffset = lilMaterial.MainTextureOffset;
             newMaterial.MainColor = Utils.ColorUtility.HdrToLdr(lilMaterial.Material.color);
 
             if (lilMaterial.UseNormalMap && Settings.useNormalMap)
