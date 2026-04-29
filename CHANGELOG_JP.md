@@ -4,7 +4,7 @@
 
 このフォーマットは [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) に基づいており、このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に準拠しています。
 
-## [Unreleased]
+## [2.11.6] - 2026-04-29
 
 ### 修正
 - lilToon または Poiyomi マテリアルを Toon Lit に変換する際、メインテクスチャの UV タイリング (スケールとオフセット) が保持されない問題を修正。
