@@ -456,7 +456,7 @@ msgid "NewVersionHasBreakingChanges"
 msgstr "このバージョンには互換性に関する重要な変更がある可能性があります。"
 
 msgid "MissingScripts"
-msgstr "以下のオブジェクト内には \"Missing\" 状態のコンポーネントがあります。インポートし忘れたアセットやパッケージがないか確認してください。"
+msgstr "以下のオブジェクトには \"Missing\" 状態のコンポーネントがあります。インポートし忘れたアセットやパッケージがないか確認してください。"
 
 msgid "ExperimentalComponentWarning"
 msgstr "このコンポーネントは実験的機能です。"

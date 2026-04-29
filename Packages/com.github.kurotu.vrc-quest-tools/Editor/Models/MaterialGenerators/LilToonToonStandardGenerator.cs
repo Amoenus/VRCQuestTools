@@ -175,22 +175,22 @@ namespace KRT.VRCQuestTools.Models
         {
             // Only use color textures, and only if the feature is actually enabled
             var textures = new List<Texture>(2);
-            
+
             if (lilMaterial.UseEmission && lilMaterial.EmissionMap != null)
             {
                 textures.Add(lilMaterial.EmissionMap);
             }
-            
+
             if (lilMaterial.UseEmission2nd && lilMaterial.Emission2ndMap != null)
             {
                 textures.Add(lilMaterial.Emission2ndMap);
             }
-            
+
             if (textures.Count > 0)
             {
                 return TextureUtility.GetBestPlatformOverrideSettings(textures.ToArray());
             }
-            
+
             return null;
         }
 

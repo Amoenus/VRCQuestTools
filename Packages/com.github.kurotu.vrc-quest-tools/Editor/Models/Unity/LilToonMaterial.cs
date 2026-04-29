@@ -397,41 +397,41 @@ namespace KRT.VRCQuestTools.Models.Unity
         {
             // Use main textures and emission textures, but only if features are actually enabled
             var textures = new List<Texture>(5);
-            
+
             // Always include main texture if it exists
             if (Material.mainTexture != null)
             {
                 textures.Add(Material.mainTexture);
             }
-            
+
             // Include Main2nd if enabled
             if (UseMain2ndTex && Main2ndTex != null)
             {
                 textures.Add(Main2ndTex);
             }
-            
+
             // Include Main3rd if enabled
             if (UseMain3rdTex && Main3rdTex != null)
             {
                 textures.Add(Main3rdTex);
             }
-            
+
             // Include emission textures if enabled
             if (UseEmission && EmissionMap != null)
             {
                 textures.Add(EmissionMap);
             }
-            
+
             if (UseEmission2nd && Emission2ndMap != null)
             {
                 textures.Add(Emission2ndMap);
             }
-            
+
             if (textures.Count > 0)
             {
                 return TextureUtility.GetBestPlatformOverrideSettings(textures.ToArray());
             }
-            
+
             return null;
         }
 
